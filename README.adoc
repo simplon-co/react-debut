@@ -1,1 +1,23 @@
 # react-debut
+
+## React : les éléments et les composants +
+[underline]#Cycle de vie des composants#
+
+image::images/react_component_lyfecycle.jpeg[]
+
+### [underline]#Introduction à JSX#
+exemple de syntaxe de JSX:
+[source,javascript]
+const element = <h1>Bonjour, monde !</h1>;
+
+### [underline]#Utiliser des expressions dans JSX#
+
+[source,javascript,linenums]
+const name = 'Clarisse Agbegnenou';
+const element = <h1>Bonjour, {name}</h1>;
+ReactDOM.render(
+element,
+document.getElementById('root')
+);
+
+
