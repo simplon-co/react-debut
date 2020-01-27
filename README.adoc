@@ -11,7 +11,7 @@ exemple de syntaxe de JSX:
 const element = <h1>Bonjour, monde !</h1>;
 
 ### [underline]#Utiliser des expressions dans JSX#
-
+exemple 1:
 [source,javascript,linenums]
 const name = 'Clarisse Agbegnenou';
 const element = <h1>Bonjour, {name}</h1>;
@@ -20,4 +20,60 @@ element,
 document.getElementById('root')
 );
 
+exemple 2:
+[source,javascript,linenums]
+function formatName(user) {
+  return user.firstName + ' ' + user.lastName;
+}
+const user = {
+    firstName: 'Kylian',
+    lastName: 'Mbappé'
+};
+const element = (
+    <h1>
+        Bonjour, {formatName(user)} !
+    </h1>
+);
+ReactDOM.render(
+    element,
+    document.getElementById('root')
+);
 
+
+### [underline]#JSX n’est rien d’autre qu’une expression#
+exemple :
+[source,javascript,linenums]
+function getGreeting(user) {
+    if (user) {
+        return <h1>Bonjour, {formatName(user)} !</h1>;
+    }
+    return <h1>Bonjour, Belle Inconnue.</h1>;
+}
+
+### [underline]#Spécifier des attributs en JSX#
+
+Vous pouvez utiliser des guillemets pour spécifier des littéraux chaînes de caractères dans les attributs :
+
+[source,javascript]
+const element = <div tabIndex="0"></div>;
+
+Vous pouvez aussi utiliser des accolades pour utiliser une expression JavaScript dans un attribut :
+
+[source,javascript]
+const element = <img src={user.avatarUrl}></img>;
+
+
+### [underline]#Spécifier des éléments enfants en JSX#
+Si une balise est vide, vous pouvez la fermer immédiatement avec />, comme en XML : +
+[source,javascript]
+const element = <img src={user.avatarUrl} />;
+
+Les balises JSX peuvent contenir des enfants :
+
+[source,javascript]
+const element = (
+<div>
+<h1>Bonjour !</h1>
+<h2>Content de te voir ici.</h2>
+</div>
+);
